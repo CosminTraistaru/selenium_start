@@ -14,7 +14,7 @@ class BasePage:
         if open_url:
             self.selenium.get(self.variables['url'])
         self.confirm_page_load()
-        time.sleep(3)  # just for demo purposes
+        time.sleep(3)  # just for demo purposes, never use it
 
     def confirm_page_load(self):
         pass

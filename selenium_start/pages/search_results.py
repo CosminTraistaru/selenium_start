@@ -5,8 +5,7 @@ from selenium.webdriver.common.by import By
 
 class SearchResultsPage(BasePage):
 
-    products = (By.CSS_SELECTOR, '.product-holder-grid .middle-container')
+    _second_product = (By.CSS_SELECTOR, '#result_1 img')
 
     def click_second_product(self):
-        products = self.get_elements(self.products)
-        products[1].click()
+        self.click(self._second_product)
