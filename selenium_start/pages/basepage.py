@@ -1,4 +1,3 @@
-import time
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.support.select import Select
 from selenium.webdriver.support.ui import WebDriverWait
@@ -14,7 +13,6 @@ class BasePage:
         if open_url:
             self.selenium.get(self.variables['url'])
         self.confirm_page_load()
-        time.sleep(3)  # just for demo purposes, never use it
 
     def confirm_page_load(self):
         pass
