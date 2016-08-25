@@ -5,7 +5,7 @@ from selenium_start.pages.landing import LandingPage
 
 def test_amazon_search(selenium, variables):
     landing_page = LandingPage(selenium, variables, open_url=True)
-    search_results = landing_page.search('nexus')
+    landing_page.search('nexus')
     assert selenium.title == 'Amazon.com: nexus'
 
 
