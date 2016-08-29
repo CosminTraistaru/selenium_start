@@ -1,4 +1,5 @@
 [![Build Status](https://travis-ci.org/CosminTraistaru/selenium_start.svg?branch=master)](https://travis-ci.org/CosminTraistaru/selenium_start)
+[![Requirements Status](https://requires.io/github/CosminTraistaru/selenium_start/requirements.svg?branch=master)](https://requires.io/github/CosminTraistaru/selenium_start/requirements/?branch=master)
 
 This is a dummy repo for automated tests using python, selenium, pytest.
 It is integrated with Travis CI.
@@ -8,14 +9,12 @@ In order to run localy you need to:
 - clone the repo: 
 
 $ git clone git@github.com:CosminTraistaru/selenium_start.git
-- create a virtualenv where you have to install the dependencies.
+- Install tox :
 
-$ virtualenv .env
+$ pip install tox
 
-$ source .env/bin/activate
+Run tox:
 
-$ pip install -r requirements.txt
-- and run the tests using py.test:
-
-$ py.test
+$ tox
+- That's it!
 - A pretty results report is generated in the results.html file.
