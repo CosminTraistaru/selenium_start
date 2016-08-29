@@ -5,7 +5,7 @@ from pyvirtualdisplay import Display
 
 _IMPLICIT_WAIT = 20
 
-display = Display(visible=0, size=(1366, 768))
+display = Display(visible=0, size=(1600, 900))
 display.start()
 
 
