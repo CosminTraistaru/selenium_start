@@ -72,7 +72,7 @@ class BasePage:
         )
 
     def select_text_from_dropdown(self, selector, value):
-        dropdown = WebDriverWait(
-                self.selenium, self._IMPLICIT_WAIT
-        ).until(EC.visibility_of_element_located(selector))
+        dropdown = WebDriverWait(self.selenium, self._IMPLICIT_WAIT).until(
+            EC.visibility_of_element_located(selector)
+        )
         Select(dropdown).select_by_value(value)

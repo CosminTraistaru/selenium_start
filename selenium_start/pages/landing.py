@@ -6,7 +6,8 @@ from selenium.webdriver.common.by import By
 class LandingPage(BasePage):
     _search_input = (By.ID, 'twotabsearchtextbox')
     _search_button = (By.CSS_SELECTOR, '.nav-search-submit')
-    _expect_title = 'Amazon.com: Online Shopping for Electronics, Apparel, Computers, Books, DVDs & more'
+    _expect_title = 'Amazon.com: Online Shopping for Electronics, ' \
+                    'Apparel, Computers, Books, DVDs & more'
 
     def confirm_page_load(self):
         assert self.selenium.title == self._expect_title
