@@ -1,4 +1,4 @@
-from selenium.webdriver.support import expected_conditions as EC
+from selenium.webdriver.support import expected_conditions as ec
 from selenium.webdriver.support.select import Select
 from selenium.webdriver.support.ui import WebDriverWait
 
@@ -28,7 +28,7 @@ class BasePage:
 
     def is_visible(self, selector):
         element = WebDriverWait(self.selenium, self._IMPLICIT_WAIT).until(
-            EC.visibility_of_element_located(
+            ec.visibility_of_element_located(
                 selector
             )
         )
@@ -36,7 +36,7 @@ class BasePage:
 
     def get_element(self, selector):
         element = WebDriverWait(self.selenium, self._IMPLICIT_WAIT).until(
-            EC.presence_of_element_located(
+            ec.presence_of_element_located(
                 selector
             )
         )
@@ -44,7 +44,7 @@ class BasePage:
 
     def get_elements(self, selector):
         elements = WebDriverWait(self.selenium, self._IMPLICIT_WAIT).until(
-            EC.presence_of_all_elements_located(
+            ec.presence_of_all_elements_located(
                 selector
             )
         )
@@ -58,7 +58,7 @@ class BasePage:
 
     def click(self, selector):
         element = WebDriverWait(self.selenium, self._IMPLICIT_WAIT).until(
-            EC.element_to_be_clickable(
+            ec.element_to_be_clickable(
                 selector
             )
         )
@@ -66,13 +66,13 @@ class BasePage:
 
     def check_clickable(self, selector):
         WebDriverWait(self.selenium, self._IMPLICIT_WAIT).until(
-            EC.element_to_be_clickable(
+            ec.element_to_be_clickable(
                 selector
             )
         )
 
     def select_text_from_dropdown(self, selector, value):
         dropdown = WebDriverWait(self.selenium, self._IMPLICIT_WAIT).until(
-            EC.visibility_of_element_located(selector)
+            ec.visibility_of_element_located(selector)
         )
         Select(dropdown).select_by_value(value)
