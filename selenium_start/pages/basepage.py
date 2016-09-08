@@ -3,7 +3,12 @@ from selenium.webdriver.support.select import Select
 from selenium.webdriver.support.ui import WebDriverWait
 
 
-class BasePage:
+class BasePage(object):
+    """
+    In this class there are defined all the basic page interactions.
+    Like click, enter text, select from drop down. And also all the selenium
+    calls. I try to not have any selenium calls in other modules.
+    """
 
     _IMPLICIT_WAIT = 20
 
@@ -15,6 +20,10 @@ class BasePage:
         self.confirm_page_load()
 
     def confirm_page_load(self):
+        """
+        In order to make sure that we are on the correct page, we can
+        overwrite this method and search for a specific element for each page.
+        """
         pass
 
     def is_visible(self, selector):
