@@ -3,7 +3,7 @@ from selenium.webdriver.support.select import Select
 from selenium.webdriver.support.ui import WebDriverWait
 
 
-class BasePage(object):
+class BasePage:
     """
     In this class there are defined all the basic page interactions.
     Like click, enter text, select from drop down. And also all the selenium

@@ -1,0 +1,8 @@
+max-line-length: 90
+pep8:
+  full: true
+uses:
+  - pytest
+  - selenium
+python-targets:
+  - 3
