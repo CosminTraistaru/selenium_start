@@ -5,7 +5,7 @@ from selenium.webdriver.common.by import By
 
 class LandingPage(BasePage):
     _search_input = (By.ID, 'twotabsearchtextbox')
-    _search_button = (By.CSS_SELECTOR, '.nav-search-submit')
+    _search_button = (By.CSS_SELECTOR, 'input.nav-input')
     _expect_title = 'Amazon.com: Online Shopping for Electronics, ' \
                     'Apparel, Computers, Books, DVDs & more'
 
