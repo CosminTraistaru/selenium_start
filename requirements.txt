@@ -5,4 +5,4 @@ pytest-selenium==1.4.0
 pytest-variables==1.4
 requests==2.11.1
 selenium==2.53.6
-pyvirtualdisplay==0.2
+pyvirtualdisplay==0.2.1
