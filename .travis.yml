@@ -1,7 +1,21 @@
+sudo: required
+dist: trusty
 language: python
+addons:
+  apt:
+    sources:
+      - google-chrome
+    packages:
+      - google-chrome-stable
 python:
   - "3.5"
 install:
   - pip install tox
 script:
   - tox
+
+before_install:
+ - wget https://chromedriver.storage.googleapis.com/LATEST_RELEASE
+ - wget https://chromedriver.storage.googleapis.com/$(cat LATEST_RELEASE)/chromedriver_linux64.zip
+ - unzip chromedriver_linux64.zip
+ - export PATH=$PATH:$(pwd)
