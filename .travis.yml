@@ -12,5 +12,5 @@ before_install:
  - wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
  - wget https://chromedriver.storage.googleapis.com/LATEST_RELEASE
  - wget https://chromedriver.storage.googleapis.com/$(cat LATEST_RELEASE)/chromedriver_linux64.zip
- - sudo dpkg -i google-chrome*.deb§
+ - sudo dpkg -i google-chrome*.deb
  - unzip chromedriver_linux64.zip
