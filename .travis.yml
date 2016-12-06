@@ -8,9 +8,9 @@ script:
 
 before_install:
  - sudo apt-get update
- - sudo apt-get install -y libappindicator1 fonts-liberation unzip libfontconfig1 libstdc++6 lsb-base
+ - sudo apt-get install -y libappindicator1 fonts-liberation unzip libfontconfig1>=2.9.0 libstdc++6>=4.8.0 lsb-base>=4.1
  - wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
  - wget https://chromedriver.storage.googleapis.com/LATEST_RELEASE
  - wget https://chromedriver.storage.googleapis.com/$(cat LATEST_RELEASE)/chromedriver_linux64.zip
  - sudo dpkg -i google-chrome*.deb
- - unzip chromedriver_linux64.zipgit
+ - unzip chromedriver_linux64.zip
