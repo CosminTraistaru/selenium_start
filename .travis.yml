@@ -18,4 +18,4 @@ before_install:
  - wget https://chromedriver.storage.googleapis.com/LATEST_RELEASE
  - wget https://chromedriver.storage.googleapis.com/$(cat LATEST_RELEASE)/chromedriver_linux64.zip
  - unzip chromedriver_linux64.zip
- - sudo ln -s chromedriver /usr/bin/chromedriver
+ - export PATH=$PATH:$(pwd)
