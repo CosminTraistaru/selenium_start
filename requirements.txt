@@ -5,4 +5,4 @@ pytest-variables==1.4
 requests==2.12.3
 selenium==3.0.2
 pyvirtualdisplay==0.2.1
-pytest-timeout=1.2.0
+pytest-timeout==1.2.0
