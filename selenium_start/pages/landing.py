@@ -4,7 +4,6 @@ from .search_results import SearchResultsPage
 from selenium.webdriver.common.by import By
 
 
-
 class LandingPage(BasePage):
     _search_input = (By.ID, 'home-q')
     _expect_title = 'Mozilla Developer Network'
