@@ -1,3 +1,5 @@
+from selenium.webdriver.common.action_chains import ActionChains
+from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.support import expected_conditions as ec
 from selenium.webdriver.support.select import Select
 from selenium.webdriver.support.ui import WebDriverWait
@@ -76,3 +78,14 @@ class BasePage:
             ec.visibility_of_element_located(selector)
         )
         Select(dropdown).select_by_value(value)
+
+    def send_key_press(self, key='ENTER'):
+        keys = {
+            'ENTER': Keys.ENTER,
+            'TAB': Keys.TAB,
+            'SPACE': Keys.SPACE,
+            'RIGHT': Keys.RIGHT
+        }
+        ActionChains(self.selenium).\
+            send_keys(keys[key]).\
+            perform()

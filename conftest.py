@@ -12,5 +12,5 @@ display.start()
 @pytest.fixture
 def selenium(selenium):
     selenium.implicitly_wait(_IMPLICIT_WAIT)
-    selenium.maximize_window()
+    # selenium.maximize_window()  # chromedriver bug
     return selenium
