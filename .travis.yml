@@ -1,8 +1,6 @@
 sudo: required
 dist: trusty
 language: python
-env:
-  - TRAVIS=true
 addons:
   - chrome: stable
 python:
