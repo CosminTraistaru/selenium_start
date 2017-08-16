@@ -1,12 +1,18 @@
+import os
+
 import pytest
 
 from pyvirtualdisplay import Display
 
 
 _IMPLICIT_WAIT = 20
+SCREEN_RESOLUTION = (1600, 900)
 
-display = Display(visible=0, size=(1600, 900))
-display.start()
+env = os.getenv('TRAVIS', None)
+
+if env:
+    display = Display(visible=0, size=SCREEN_RESOLUTION)
+    display.start()
 
 
 @pytest.fixture
