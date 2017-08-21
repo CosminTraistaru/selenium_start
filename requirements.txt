@@ -1,5 +1,5 @@
 pytest>=3.2.1
-pytest-html>=1.15.2
+pytest-html<=1.14.0
 pytest-variables>=1.5.1
 requests>=2.13.0
 selenium>=3.5.0
