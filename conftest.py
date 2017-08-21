@@ -46,6 +46,8 @@ def driver(request):
             driver = webdriver.Chrome(chrome_options=chrome_options())
         elif browser == 'edge':
             driver = webdriver.Edge()
+        elif browser == 'internet':
+            driver = webdriver.Ie()
 
     except KeyError:
         raise Exception('Selenium Driver not found')
