@@ -3,6 +3,7 @@ import os
 import pytest
 
 from pyvirtualdisplay import Display
+from selenium import webdriver
 
 
 _IMPLICIT_WAIT = 20
@@ -15,14 +16,42 @@ if env:
     display.start()
 
 
+def chrome_options():
+    co = webdriver.ChromeOptions()
+    co.add_argument('--headless')
+    return co
 
-@pytest.fixture
-def chrome_options(chrome_options):
-    chrome_options.add_argument('--headless')
-    return chrome_options
+
+def pytest_addoption(parser):
+    parser.addoption(
+        '--browser',
+        action='store',
+        default='chrome',
+        choices=('firefox', 'chrome', 'edge', 'no'),
+        help='Select your desired browser.'
+    )
 
 
-@pytest.fixture
-def selenium(selenium):
-    selenium.implicitly_wait(_IMPLICIT_WAIT)
-    return selenium
+@pytest.fixture(scope='class')
+def driver(request):
+    """ This creates a selenium browser instance """
+    browser = request.config.getoption('--browser')
+
+    try:
+        if browser == 'no':
+            return
+        elif browser == 'firefox':
+            driver = webdriver.Firefox()
+        elif browser == 'chrome':
+            driver = webdriver.Chrome(chrome_options=chrome_options())
+        elif browser == 'edge':
+            driver = webdriver.Edge()
+
+    except KeyError:
+        raise Exception('Selenium Driver not found')
+
+    driver.implicitly_wait(_IMPLICIT_WAIT)
+
+    driver.set_window_size(*SCREEN_RESOLUTION)
+    request.addfinalizer(driver.quit)
+    yield driver

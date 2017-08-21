@@ -14,11 +14,11 @@ class BasePage:
 
     _IMPLICIT_WAIT = 20
 
-    def __init__(self, selenium, variables, open_url=False):
-        self.selenium = selenium
+    def __init__(self, driver, variables, open_url=False):
+        self.driver = driver
         self.variables = variables
         if open_url:
-            self.selenium.get(self.variables['url'])
+            self.driver.get(self.variables['url'])
         self.confirm_page_load()
 
     def confirm_page_load(self):
@@ -29,7 +29,7 @@ class BasePage:
         pass
 
     def is_visible(self, selector):
-        element = WebDriverWait(self.selenium, self._IMPLICIT_WAIT).until(
+        element = WebDriverWait(self.driver, self._IMPLICIT_WAIT).until(
             ec.visibility_of_element_located(
                 selector
             )
@@ -37,7 +37,7 @@ class BasePage:
         return element
 
     def get_element(self, selector):
-        element = WebDriverWait(self.selenium, self._IMPLICIT_WAIT).until(
+        element = WebDriverWait(self.driver, self._IMPLICIT_WAIT).until(
             ec.presence_of_element_located(
                 selector
             )
@@ -45,7 +45,7 @@ class BasePage:
         return element
 
     def get_elements(self, selector):
-        elements = WebDriverWait(self.selenium, self._IMPLICIT_WAIT).until(
+        elements = WebDriverWait(self.driver, self._IMPLICIT_WAIT).until(
             ec.presence_of_all_elements_located(
                 selector
             )
@@ -59,7 +59,7 @@ class BasePage:
         element.send_keys(text)
 
     def click(self, selector):
-        element = WebDriverWait(self.selenium, self._IMPLICIT_WAIT).until(
+        element = WebDriverWait(self.driver, self._IMPLICIT_WAIT).until(
             ec.element_to_be_clickable(
                 selector
             )
@@ -67,14 +67,14 @@ class BasePage:
         element.click()
 
     def check_clickable(self, selector):
-        WebDriverWait(self.selenium, self._IMPLICIT_WAIT).until(
+        WebDriverWait(self.driver, self._IMPLICIT_WAIT).until(
             ec.element_to_be_clickable(
                 selector
             )
         )
 
     def select_text_from_dropdown(self, selector, value):
-        dropdown = WebDriverWait(self.selenium, self._IMPLICIT_WAIT).until(
+        dropdown = WebDriverWait(self.driver, self._IMPLICIT_WAIT).until(
             ec.visibility_of_element_located(selector)
         )
         Select(dropdown).select_by_value(value)
@@ -86,6 +86,6 @@ class BasePage:
             'SPACE': Keys.SPACE,
             'RIGHT': Keys.RIGHT
         }
-        ActionChains(self.selenium).\
+        ActionChains(self.driver).\
             send_keys(keys[key]).\
             perform()

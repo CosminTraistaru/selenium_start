@@ -3,15 +3,27 @@ import pytest
 from selenium_start.pages.landing import LandingPage
 
 
-def test_mozilla_search(selenium, variables):
-    landing_page = LandingPage(selenium, variables, open_url=True)
+def test_mozilla_search(driver, variables):
+    landing_page = LandingPage(driver, variables, open_url=True)
     landing_page.search('firefox')
-    assert selenium.title == 'Search Results for "firefox" | MDN'
+    assert driver.title == 'Search Results for "firefox" | MDN'
+
+
+def test_mozilla_search_2(driver, variables):
+    landing_page = LandingPage(driver, variables, open_url=True)
+    landing_page.search('firefox')
+    assert driver.title == 'Search Results for "firefox" | MDN'
+
+
+def test_mozilla_search_3(driver, variables):
+    landing_page = LandingPage(driver, variables, open_url=True)
+    landing_page.search('firefox')
+    assert driver.title == 'Search Results for "firefox" | MDN'
 
 
 @pytest.mark.xfail
-def test_mozilla_search_fail(selenium, variables):
-    landing_page = LandingPage(selenium, variables, open_url=True)
-    search_results = landing_page.search('aer conditionat')
+def test_mozilla_search_fail(driver, variables):
+    landing_page = LandingPage(driver, variables, open_url=True)
+    search_results = landing_page.search('security')
     search_results.click_second_result()
-    assert 'caca' in selenium.title
+    assert 'caca' in driver.title
