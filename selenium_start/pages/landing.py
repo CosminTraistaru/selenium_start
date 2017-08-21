@@ -12,6 +12,6 @@ class LandingPage(BasePage):
         assert self.driver.title == self._expect_title
 
     def search(self, text):
-        self.enter_text(self._search_input, text=text)
-        self.send_key_press(key='ENTER')
+        s_input = self.enter_text(self._search_input, text=text)
+        s_input.submit()
         return SearchResultsPage(self.driver, self.variables)
