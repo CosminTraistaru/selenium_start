@@ -72,4 +72,4 @@ def driver(request):
     yield driver
     driver.quit()
     if browser == 'ie':
-        os.system("TASKKILL /F /IM ie.exe")
+        os.system("TASKKILL /F /IM ﻿iexplore.exe")
