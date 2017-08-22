@@ -14,5 +14,7 @@ before_install:
  - wget https://chromedriver.storage.googleapis.com/LATEST_RELEASE
  - wget https://chromedriver.storage.googleapis.com/$(cat LATEST_RELEASE)/chromedriver_linux64.zip
  - unzip chromedriver_linux64.zip
+ - wget https://github.com/mozilla/geckodriver/releases/download/v0.18.0/geckodriver-v0.18.0-linux64.tar.gz
+ - tar -xzf geckodriver-v0.18.0-linux64.tar.gz .
  - export PATH=$PATH:$(pwd)
  - google-chrome-stable --headless --disable-gpu --remote-debugging-port=9222 http://localhost &
