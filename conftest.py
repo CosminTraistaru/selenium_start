@@ -71,3 +71,5 @@ def driver(request):
     driver.set_window_size(*SCREEN_RESOLUTION)
     yield driver
     driver.quit()
+    if browser == 'ie':
+        os.system("TASKKILL /F /IM ie.exe")
