@@ -6,7 +6,7 @@ from selenium.webdriver.common.by import By
 
 class LandingPage(BasePage):
     _search_input = (By.ID, 'home-q')
-    _expect_title = 'Mozilla Developer Network'
+    _expect_title = 'MDN Web Docs'
 
     def confirm_page_load(self):
         assert self.selenium.title == self._expect_title
