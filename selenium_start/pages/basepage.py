@@ -17,6 +17,7 @@ class BasePage:
     def __init__(self, selenium, variables, open_url=False):
         self.selenium = selenium
         self.variables = variables
+        self.selenium.implicitly_wait = self._IMPLICIT_WAIT
         if open_url:
             self.selenium.get(self.variables['url'])
         self.confirm_page_load()
@@ -89,3 +90,14 @@ class BasePage:
         ActionChains(self.selenium).\
             send_keys(keys[key]).\
             perform()
+
+    def hover(self, selector):
+        element = self.get_element(selector)
+        hover = ActionChains(self.selenium).move_to_element(element)
+        hover.perform()
+
+    def drag_and_drop(self, src_selector, dest_selector):
+        source = self.get_element(src_selector)
+        destination = self.get_element(dest_selector)
+        drag = ActionChains(self.selenium).drag_and_drop(source, destination)
+        drag.perform()

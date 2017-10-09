@@ -15,14 +15,8 @@ if env:
     display.start()
 
 
-
 @pytest.fixture
 def chrome_options(chrome_options):
     chrome_options.add_argument('--headless')
     return chrome_options
 
-
-@pytest.fixture
-def selenium(selenium):
-    selenium.implicitly_wait(_IMPLICIT_WAIT)
-    return selenium
