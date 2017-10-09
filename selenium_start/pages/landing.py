@@ -1,7 +1,9 @@
-from .basepage import BasePage
-from .search_results import SearchResultsPage
+""" Page Object Class for the landing page for Mozilla Developers site"""
 
 from selenium.webdriver.common.by import By
+
+from .basepage import BasePage
+from .search_results import SearchResultsPage
 
 
 class LandingPage(BasePage):

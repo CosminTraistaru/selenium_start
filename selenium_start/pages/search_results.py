@@ -1,6 +1,8 @@
-from .basepage import BasePage
+""" Page Object Class for the search results page. """
 
 from selenium.webdriver.common.by import By
+
+from .basepage import BasePage
 
 
 class SearchResultsPage(BasePage):

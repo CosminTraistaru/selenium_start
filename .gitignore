@@ -64,3 +64,4 @@ target/
 .env
 results.html
 results.xml
+report.html
