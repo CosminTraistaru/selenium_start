@@ -2,7 +2,7 @@ sudo: required
 dist: trusty
 language: python
 addons:
-  - chrome: stable
+  - chrome: beta
 python:
   - "3.6"
 install:
