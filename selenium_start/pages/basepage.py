@@ -16,12 +16,12 @@ class BasePage:
 
     _IMPLICIT_WAIT = 20
 
-    def __init__(self, selenium, variables, open_url=False):
+    def __init__(self, selenium, variables, open_url=False, suffix_url=''):
         self.selenium = selenium
         self.variables = variables
         self.selenium.implicitly_wait = self._IMPLICIT_WAIT
         if open_url:
-            self.selenium.get(self.variables['url'])
+            self.selenium.get(self.variables['url'] + suffix_url)
         self.confirm_page_load()
 
     def confirm_page_load(self):
@@ -75,6 +75,7 @@ class BasePage:
                 selector
             )
         )
+        return True
 
     def select_text_from_dropdown(self, selector, value):
         dropdown = WebDriverWait(self.selenium, self._IMPLICIT_WAIT).until(
@@ -103,3 +104,8 @@ class BasePage:
         destination = self.get_element(dest_selector)
         drag = ActionChains(self.selenium).drag_and_drop(source, destination)
         drag.perform()
+
+    def text_is_present_in_element(self, selector, text):
+        WebDriverWait(self.selenium, self._IMPLICIT_WAIT).until(
+            ec.text_to_be_present_in_element(selector, text)
+        )
