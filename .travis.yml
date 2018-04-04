@@ -15,4 +15,3 @@ before_install:
  - wget https://chromedriver.storage.googleapis.com/$(cat LATEST_RELEASE)/chromedriver_linux64.zip
  - unzip chromedriver_linux64.zip
  - export PATH=$PATH:$(pwd)
- - google-chrome-stable --headless --disable-gpu --remote-debugging-port=9222 http://localhost &
