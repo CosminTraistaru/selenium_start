@@ -11,8 +11,7 @@ script:
 
 before_install:
  - wget https://chromedriver.storage.googleapis.com/LATEST_RELEASE
- - wget https://chromedriver.storage.googleapis.com/2.38/chromedriver_linux64.zip
+ - wget https://chromedriver.storage.googleapis.com/2.37/chromedriver_linux64.zip
  - unzip chromedriver_linux64.zip
  - export PATH=$PATH:$(pwd)
- - export CHROME_BIN=chromium-browser
  - google-chrome-stable --headless --disable-gpu --remote-debugging-port=9222 http://localhost &
