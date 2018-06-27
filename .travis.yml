@@ -2,7 +2,7 @@ sudo: required
 dist: trusty
 language: python
 addons:
-  - chrome: beta
+  - chrome: stable
 python:
   - "3.6"
 install:
@@ -16,3 +16,4 @@ before_install:
  - unzip chromedriver_linux64.zip
  - export PATH=$PATH:$(pwd)
  - export CHROME_BIN=chromium-browser
+ - google-chrome-stable --headless --disable-gpu --remote-debugging-port=9222 http://localhost &
