@@ -6,12 +6,12 @@ from .basepage import BasePage
 class Http(BasePage):
 
     def __init__(self, selenium, variables, open_url=False):
-        suffix_url = '/en-US/docs/Web/HTTP'
+        suffix_url = '/en-US/docs/Web/HTML'
         super().__init__(selenium, variables, open_url, suffix_url)
 
     _title_header_locator = (By.TAG_NAME, 'h1')
-    _edit_page_button_locator = (By.CLASS_NAME, 'page-buttons-edit')
-    _http_page_title = 'HTTP'
+    _edit_page_button_locator = (By.CLASS_NAME, 'show-desktop')
+    _http_page_title = 'HTML: HyperText Markup Language'
 
     def confirm_page_load(self):
         self.text_is_present_in_element(

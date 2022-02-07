@@ -7,7 +7,8 @@ from .search_results import SearchResultsPage
 
 
 class LandingPage(BasePage):
-    _search_input = (By.ID, 'home-q')
+    _search_input = (By.ID, 'main-q')
+    _result_item = (By.CLASS_NAME, 'result-item ')
     _expect_title = 'MDN Web Docs'
 
     def confirm_page_load(self):
@@ -15,5 +16,5 @@ class LandingPage(BasePage):
 
     def search(self, text):
         self.enter_text(self._search_input, text=text)
-        self.send_key_press(key='ENTER')
+        self.get_element(self._result_item)
         return SearchResultsPage(self.selenium, self.variables)
